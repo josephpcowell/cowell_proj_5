@@ -6,12 +6,13 @@ import pandas as pd
 import re
 
 
-def get_song_info(album_json):
+def get_song_info(album_json, linebreak=True):
     """
     Takes the bulk data from Genius and outputs a cleaner list
 
     Args:
         album_json: json file containing Genius data
+        linebreak: boolean to include linebreaks in lyrics
 
     Returns:
         List of dictionaries containing relevant information
@@ -33,7 +34,12 @@ def get_song_info(album_json):
         artist = songs["artist"]
         lyrics = songs["lyrics"]
         lyrics = re.sub("\[.+?]", "", lyrics)
-        lyrics = re.sub("(\\n)+", " ", lyrics)
+        if linebreak != True:
+            lyrics = re.sub("(\\n)+", " ", lyrics)
+        else:
+            lyrics = re.sub("(\\n)+", "\n", lyrics)
+        lyrics = re.sub("^ ", "", lyrics)
+        lyrics = re.sub("^\\n", "", lyrics)
         data_list = [title, artist, album_title, release_date, lyrics]
         album_dict = dict(zip(headers, data_list))
 
