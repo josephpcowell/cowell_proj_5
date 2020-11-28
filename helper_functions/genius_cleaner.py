@@ -6,7 +6,7 @@ import pandas as pd
 import re
 
 
-def get_song_info(album_json, linebreak=True):
+def get_song_info(album_json, album_directory, linebreak=True, artist=None):
     """
     Takes the bulk data from Genius and outputs a cleaner list
 
@@ -23,7 +23,7 @@ def get_song_info(album_json, linebreak=True):
 
     headers = ["song_title", "artist", "album_title", "release_date", "lyrics"]
 
-    album_df = pd.read_json("Albums/" + album_json, orient="index")
+    album_df = pd.read_json(album_directory + album_json, orient="index")
 
     album_title = album_df.loc["name"][0]
 
@@ -31,7 +31,10 @@ def get_song_info(album_json, linebreak=True):
 
     for songs in album_df.loc["songs", :][0]:
         title = songs["title"]
-        artist = songs["artist"]
+        if artist == None:
+            artist = songs["artist"]
+        else:
+            artist = artist
         lyrics = songs["lyrics"]
         lyrics = re.sub("\[.+?]", "", lyrics)
         if linebreak != True:
