@@ -9,12 +9,14 @@ from transformers import AutoTokenizer, GPT2Tokenizer
 
 import os
 
-sess = gpt2.start_tf_sess()
-gpt2.load_gpt2(sess, checkpoint_dir="beatles_mod1", run_name="run1")
+# sess = gpt2.start_tf_sess()
+# gpt2.load_gpt2(sess, checkpoint_dir="beatles_mod1", run_name="run1")
+
 
 def gen_lyrics(phrase):
 
-    phrase = phrase
+    # sess = gpt2.start_tf_sess()
+    # gpt2.load_gpt2(sess, checkpoint_dir="beatles_mod1", run_name="run1")
 
     text = gpt2.generate(
         sess,
