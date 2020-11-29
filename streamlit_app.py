@@ -26,11 +26,70 @@ from transformers import AutoTokenizer, GPT2Tokenizer
 
 import os
 
-# Start of the app layout
-st.write(
-    """# Song Generator: The Beatles
-"""
+# st.markdown(
+#     """
+#     <style>
+#     .reportview-container {
+#         background: url("https://upload.wikimedia.org/wikipedia/commons/8/87/The_Beatles_magical_mystery_tour_%28cropped%29.jpg");
+#         background-position: center center;
+#         background-size: cover;
+#         background-repeat: no-repeat;
+#         background-blend-mode: lighten
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
+## THE BACKGROUND ^
+
+# Select who will generate the song
+singer = st.sidebar.selectbox(
+    "Who is singing the song?",
+    (
+        "The Beatles",
+        "John Lennon",
+        "Paul McCartney",
+        "George Harrison",
+        "Ringo Starr",
+    ),
 )
+
+# Change title based on songwriter
+st.write(
+    """# Song Generator: {}
+""".format(
+        singer
+    )
+)
+
+if singer == "The Beatles":
+    st.markdown(
+        """
+        <style>
+        .reportview-container {
+            background: url("https://upload.wikimedia.org/wikipedia/commons/8/87/The_Beatles_magical_mystery_tour_%28cropped%29.jpg");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: lighten
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    # THE BACKGROUND ^
+
+# if singer == "John Lennon":
+
+
+# if singer == "Paul McCartney"
+
+
+# if singer == "George Harrison"
+
+
+# if singer == "Ringo Starr"
+
 
 word = st.text_input(
     "Enter some lyrics to start the song:", value="here comes the sun"
