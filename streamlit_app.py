@@ -15,6 +15,7 @@ import pickle
 # import generator
 
 import os
+import string
 
 import gpt_2_simple as gpt2
 from datetime import datetime
@@ -186,6 +187,7 @@ if st.button("Generate"):
 
         lyrics = text[0]
         split = lyrics.splitlines()
+
         verse1 = split[:4]
         verse1 = "\n".join(verse1)
 
@@ -195,8 +197,10 @@ if st.button("Generate"):
         chorus = split[8:12]
         chorus = "\n".join(chorus)
 
-        bridge = split[8:12]
+        bridge = split[12:16]
         bridge = "\n".join(bridge)
+
+        st.write("Title: " + string.capwords(split[11]))
 
         st.write("Verse 1")
         st.text(verse1)
@@ -232,8 +236,42 @@ if st.button("Generate"):
             prefix=word,
             return_as_list=True,
         )
+        # Formatting text for output
+
         lyrics = text[0]
-        st.text(lyrics)
+        split = lyrics.splitlines()
+
+        verse1 = split[:4]
+        verse1 = "\n".join(verse1)
+
+        verse2 = split[4:8]
+        verse2 = "\n".join(verse2)
+
+        chorus = split[8:12]
+        chorus = "\n".join(chorus)
+
+        bridge = split[12:16]
+        bridge = "\n".join(bridge)
+
+        st.write("Title: " + string.capwords(split[11]))
+
+        st.write("Verse 1")
+        st.text(verse1)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Verse 2")
+        st.text(verse2)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Bridge")
+        st.text(bridge)
+
+        st.write("Chorus")
+        st.text(chorus)
 
     if singer == "John Lennon":
 
@@ -251,9 +289,42 @@ if st.button("Generate"):
             prefix=word,
             return_as_list=True,
         )
-        lyrics = text[0]
-        st.text(lyrics)
+        # Formatting text for output
 
+        lyrics = text[0]
+        split = lyrics.splitlines()
+
+        verse1 = split[:4]
+        verse1 = "\n".join(verse1)
+
+        verse2 = split[4:8]
+        verse2 = "\n".join(verse2)
+
+        chorus = split[8:12]
+        chorus = "\n".join(chorus)
+
+        bridge = split[12:16]
+        bridge = "\n".join(bridge)
+
+        st.write("Title: " + string.capwords(split[11]))
+
+        st.write("Verse 1")
+        st.text(verse1)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Verse 2")
+        st.text(verse2)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Bridge")
+        st.text(bridge)
+
+        st.write("Chorus")
+        st.text(chorus)
     if singer == "Paul McCartney":
 
         sess = gpt2.start_tf_sess()
@@ -270,8 +341,42 @@ if st.button("Generate"):
             prefix=word,
             return_as_list=True,
         )
+        # Formatting text for output
+
         lyrics = text[0]
-        st.text(lyrics)
+        split = lyrics.splitlines()
+
+        verse1 = split[:4]
+        verse1 = "\n".join(verse1)
+
+        verse2 = split[4:8]
+        verse2 = "\n".join(verse2)
+
+        chorus = split[8:12]
+        chorus = "\n".join(chorus)
+
+        bridge = split[12:16]
+        bridge = "\n".join(bridge)
+
+        st.write("Title: " + string.capwords(split[11]))
+
+        st.write("Verse 1")
+        st.text(verse1)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Verse 2")
+        st.text(verse2)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Bridge")
+        st.text(bridge)
+
+        st.write("Chorus")
+        st.text(chorus)
 
     if singer == "Ringo Starr":
 
@@ -287,8 +392,42 @@ if st.button("Generate"):
             prefix=word,
             return_as_list=True,
         )
+        # Formatting text for output
+
         lyrics = text[0]
-        st.text(lyrics)
+        split = lyrics.splitlines()
+
+        verse1 = split[:4]
+        verse1 = "\n".join(verse1)
+
+        verse2 = split[4:8]
+        verse2 = "\n".join(verse2)
+
+        chorus = split[8:12]
+        chorus = "\n".join(chorus)
+
+        bridge = split[12:16]
+        bridge = "\n".join(bridge)
+
+        st.write("Title: " + string.capwords(split[11]))
+
+        st.write("Verse 1")
+        st.text(verse1)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Verse 2")
+        st.text(verse2)
+
+        st.write("Chorus")
+        st.text(chorus)
+
+        st.write("Bridge")
+        st.text(bridge)
+
+        st.write("Chorus")
+        st.text(chorus)
 
 else:
     pass
