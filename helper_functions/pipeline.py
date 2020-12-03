@@ -116,26 +116,3 @@ def hasNumbers(inputString):
         A boolean. True if it has numbers, False otherwise.
     """
     return any(char.isdigit() for char in inputString)
-
-
-def tweet_clean1(text, tokenizer, stemmer):
-    """
-    Build upon the naive function in the NLPPipe class to
-    also remove tokens containing numbers.
-    """
-    cleaned_text = []
-    for post in text:
-        cleaned_words = []
-        for word in tokenizer(post):
-            low_word = word.lower()
-            low_word = re.sub(r"http\w+", "", low_word)
-            low_word = re.sub(r"@\w+", "", low_word)
-            low_word = re.sub(r"[^\w\s]", "", low_word)
-            low_word = re.sub(r"_", "", low_word)
-            low_word = re.sub(r"tco\w+", "", low_word)
-            if stemmer:
-                low_word = stemmer.stem(low_word)
-            if not hasNumbers(low_word):
-                cleaned_words.append(low_word)
-        cleaned_text.append(" ".join(cleaned_words))
-    return cleaned_text
